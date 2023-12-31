@@ -20,6 +20,7 @@ class Book extends Model
         'publisher',
         'edition',
         'publish_year',
+        'price',
     ];
 
     protected $casts = [

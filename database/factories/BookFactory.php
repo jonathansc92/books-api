@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +21,7 @@ class BookFactory extends Factory
             'publisher' => fake()->company(),
             'edition' => fake()->randomDigit(),
             'publish_year' => fake()->year(),
+            'price' => fake()->randomFloat(1, 20, 30),
         ];
     }
 }

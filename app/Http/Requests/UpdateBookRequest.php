@@ -16,6 +16,7 @@ class UpdateBookRequest extends FormRequest
             'publisher' => ['string', 'sometimes', 'max:40'],
             'edition' => ['integer', 'sometimes', 'max:10'],
             'publish_year' => ['integer', 'sometimes', 'date_format:Y', 'min:1901', 'max:2155'],
+            'price' => ['numeric', 'sometimes'],
         ];
     }
 

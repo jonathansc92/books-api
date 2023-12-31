@@ -16,6 +16,7 @@ class StoreBookRequest extends FormRequest
             'publisher' => ['string', 'required', 'max:40'],
             'edition' => ['integer', 'required', 'max:10'],
             'publish_year' => ['integer', 'required', 'date_format:Y', 'min:1901', 'max:2155'],
+            'price' => ['numeric', 'required'],
         ];
     }
 

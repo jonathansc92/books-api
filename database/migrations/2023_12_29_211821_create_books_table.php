@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title', 40);
+            $table->float('price', 10, 2);
             $table->string('publisher', 40);
             $table->integer('edition');
             $table->year('publish_year');
