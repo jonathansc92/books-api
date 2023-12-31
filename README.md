@@ -6,8 +6,8 @@ Este projeto é destinado a pôr em exercício aprendizados e conhecimento técn
 ### Objetivo
 O principal objetivo deste projeto é criar um API em Laravel, que possibilita.
 
-- Cadastro de pessoas,
-- Cadastro de contatos.
+- Cadastro de livros.
+
 
 # Padrões adotados
 Para criação da API foi adotado alguns padrões e conceitos para melhor legibilidade e manutenção do projeto, como:
@@ -22,28 +22,41 @@ Design Pattern (Requests, Resources, Services, Filters)
 ## Uso
 Para rodar o projeto é necessário ter o **docker** configurador e um terminal **bash**. Após o clonar o repositório, deve ser acessada a pasta raiz do projeto e rodado o comando: `docker compose up -d` no terminal. Feito isso, só aguardar o projeto rodar e executar todos os scripts necessários. Caso desejar dados nas tabelas de banco de dados pode rodar o seeder com o comando `php artisan db:seed`. Para rodar os testes de integração, acessar o container e executar o comando `php artisan test`.
 
-**TESTE DE Suportes balanceados:**
-Suporte Balanceados: **[POST]** `/api/check-balanced/`, payload: `{ "sequence": "{sequence}" }`.
+**BOOKS:**
 
-**PERSONS:**
+Lista de livros: **[GET]** `/api/books`.
 
-Lista de pessoas: **[GET]** `/api/persons`.
+Mostrar uma livro: **[GET]** `/api/books/1`.
 
-Mostrar uma pessoa: **[GET]** `/api/persons/1`.
+Salvar uma livro: **[POST]** `/api/books`, payload: `{ "title": "{title}", "publisher": "{publisher}", "edition": {edition}, "publish_year": {publish_year} }`.
 
-Salvar uma pessoa: **[POST]** `/api/persons`, payload: `{ "name": "{name}" }`.
+Alterar uma livro: **[PUT]** `/api/books/1`, payload: `{ "title": "{title}", "publisher": "{publisher}", "edition": {edition}, "publish_year": {publish_year} }`.
 
-Alterar uma pessoa: **[PUT]** `/api/persons/1`, payload: `{ "name": "{name}" }`.
+Excluir uma livro: **[DELETE]** `/api/books/1`.
 
-Excluir uma pessoa: **[DELETE]** `/api/persons/1`.
+**AUTHORS:**
 
-**CONTACTS:**
+Lista de autores: **[GET]** `/api/authors`.
 
-Salvar um contato: **[POST]** `/api/contacts`, payload: `{ "phone": "{phone}", "whatsapp": "{whatsapp}", "email": "{email}", "person_id": {1} }`.
+Mostrar uma author: **[GET]** `/api/authors/1`.
 
-Alterar uma pessoa: **[PUT]** `/api/contacts/1`, , payload: `{ "phone": "{phone}", "whatsapp": "{whatsapp}", "email": "{email}", "person_id": {1} }`.
+Salvar uma author: **[POST]** `/api/authors`, payload: `{ "name": "{name}" }`.
 
-Excluir uma pessoa: **[DELETE]** `/api/contacts/1`.
+Alterar uma author: **[PUT]** `/api/authors/1`, payload: `{ "name": "{name}" }`.
+
+Excluir uma author: **[DELETE]** `/api/authors/1`.
+
+**SUBJECT:**
+
+Lista de assuntos: **[GET]** `/api/subjects`.
+
+Mostrar uma assunto: **[GET]** `/api/subjects/1`.
+
+Salvar uma assunto: **[POST]** `/api/subjects`, payload: `{ "description": "{description}" }`.
+
+Alterar uma assunto: **[PUT]** `/api/subjects/1`, payload: `{ "description": "{description}" }`.
+
+Excluir uma assunto: **[DELETE]** `/api/subjects/1`.
 
 Por fim, é isso.
 Qualquer dúvida, ou sugestão. Enviar e-mail para: jonathansc92@gmail.com
