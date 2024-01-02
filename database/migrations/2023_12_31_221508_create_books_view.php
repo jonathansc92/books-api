@@ -9,8 +9,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement("
-        CREATE VIEW books_view AS
+        \DB::statement("CREATE OR REPLACE VIEW books_view 
+        AS
         SELECT
             a.name AS author_name,
             GROUP_CONCAT(DISTINCT b.title ORDER BY b.title SEPARATOR ', ') AS books_by_author,
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement('DROP VIEW IF EXISTS books_view');
+        \DB::statement('DROP VIEW IF EXISTS books_view');
     }
 };
