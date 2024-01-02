@@ -14,6 +14,6 @@ class BookSubjectSeeder extends Seeder
      */
     public function run()
     {
-        BookSubject::factory()->count(20)->create();
+        BookSubject::factory()->count(10)->create();
     }
 }
