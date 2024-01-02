@@ -58,5 +58,9 @@ Alterar uma assunto: **[PUT]** `/api/subjects/1`, payload: `{ "description": "{d
 
 Excluir uma assunto: **[DELETE]** `/api/subjects/1`.
 
+**REPORT:**
+
+Relatório: **[POST]** `/api/report`.
+
 Por fim, é isso.
 Qualquer dúvida, ou sugestão. Enviar e-mail para: jonathansc92@gmail.com

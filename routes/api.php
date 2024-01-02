@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Route;
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
 Route::resource('subjects', SubjectController::class);
-Route::get('report', 'App\Http\Controllers\Reports\BookReportController@report');
+Route::post('report', 'App\Http\Controllers\Reports\BookReportController@report');
