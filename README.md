@@ -28,9 +28,9 @@ Lista de livros: **[GET]** `/api/books`.
 
 Mostrar uma livro: **[GET]** `/api/books/1`.
 
-Salvar uma livro: **[POST]** `/api/books`, payload: `{ "title": "{title}", "publisher": "{publisher}", "edition": {edition}, "publish_year": {publish_year} }`.
+Salvar uma livro: **[POST]** `/api/books`, payload: `{ "title": "{title}", "publisher": "{publisher}", "edition": {edition}, "publish_year": {publish_year}, "subjects": [{id_do_assunto}, {id_do_assunto}], "authors": [{id_do_autor}, {id_do_autor}] }`.
 
-Alterar uma livro: **[PUT]** `/api/books/1`, payload: `{ "title": "{title}", "publisher": "{publisher}", "edition": {edition}, "publish_year": {publish_year} }`.
+Alterar uma livro: **[PUT]** `/api/books/1`, payload: `{ "title": "{title}", "publisher": "{publisher}", "edition": {edition}, "publish_year": {publish_year}, "subjects": [{id_do_assunto}, {id_do_assunto}], "authors": [{id_do_autor}, {id_do_autor}] }`.
 
 Excluir uma livro: **[DELETE]** `/api/books/1`.
 
@@ -66,11 +66,17 @@ Obs: Liberar o path com os comandos abaixo, para gerar o excel:
 `sudo chgrp -R www-data storage bootstrap/cache`
 `sudo chmod -R ug+rwx storage bootstrap/cache`
 
+**COLLECTION**
+
+[https://api.postman.com/collections/3409729-51ffb08f-cab0-485b-8cf8-b3cba37c819e?access_key=PMAT-01HK5SEVBV9MGBKNNM35QB1B26](Postman)
+
+
 ## O que faria se tivesse mais tempo?
 - Colocaria filas ao gerar excel;
 - Guardaria em cache a listagem de relatório;
 - Deixaria nome do arquivo dinâmico;
 - Adicionaria filtros para o relatório.
 
-Por fim, é isso.
-Qualquer dúvida, ou sugestão. Enviar e-mail para: jonathansc92@gmail.com
+## Autor
+- Autor - Jonathan Cruz
+- [https://jonathansc92.github.io/jonathancruzdev/?language=ptBr](https://jonathansc92.github.io/jonathancruzdev/?language=ptBr)
