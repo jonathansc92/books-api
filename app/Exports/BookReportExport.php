@@ -11,6 +11,8 @@ class BookReportExport implements FromCollection, WithMapping, WithHeadings
 {
     use Exportable;
 
+    protected $data;
+
     public function __construct($data)
     {
         $this->data = $data;
