@@ -23,6 +23,8 @@ class BookService
     {
         $book = Book::create($request->validated());
 
+        self::saveSubjectsAuthors($request, $book->id);
+
         return success_response(
             data: new BookResource($book),
             message: __('messages.saved', ['model' => __('models/book.singular')]),
@@ -33,7 +35,7 @@ class BookService
     public function find($book)
     {
         return success_response(
-            data: new BookResource($book),
+            data: new BookResource($book->load(['subjects', 'authors'])),
             message: __('messages.retrieved', ['model' => __('models/book.singular')]),
         );
     }
@@ -41,6 +43,8 @@ class BookService
     public static function update($request, $book)
     {
         $book->update($request->validated());
+
+        self::saveSubjectsAuthors($request, $book->id);
 
         return success_response(
             data: new BookResource($book),
@@ -55,5 +59,30 @@ class BookService
         return success_response(
             message: __('messages.deleted', ['model' => __('models/book.singular')]),
         );
+    }
+
+    private static function saveSubjectsAuthors($request, $bookId)
+    {
+        if (isset($request->subjects)) {
+            BookSubjectService::deleteByBookId($bookId);
+
+            foreach ($request->subjects as $subject) {
+                $bookSubject['book_id'] = $bookId;
+                $bookSubject['subject_id'] = $subject;
+
+                BookSubjectService::create($bookSubject);
+            }
+        }
+
+        if (isset($request->authors)) {
+            BookAuthorService::deleteByBookId($bookId);
+
+            foreach ($request->authors as $author) {
+                $bookAuthor['book_id'] = $bookId;
+                $bookAuthor['author_id'] = $author;
+
+                BookAuthorService::create($bookAuthor);
+            }
+        }
     }
 }

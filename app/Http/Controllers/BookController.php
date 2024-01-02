@@ -23,9 +23,9 @@ class BookController extends Controller
         return $this->service->get($filter);
     }
 
-    public function show(Book $Book): JsonResponse
+    public function show(Book $book): JsonResponse
     {
-        return $this->service->find($Book);
+        return $this->service->find($book);
     }
 
     public function store(StoreBookRequest $request): JsonResponse
@@ -33,13 +33,13 @@ class BookController extends Controller
         return $this->service->create($request);
     }
 
-    public function update(UpdateBookRequest $request, Book $Book): JsonResponse
+    public function update(UpdateBookRequest $request, Book $book): JsonResponse
     {
-        return $this->service->update($request, $Book);
+        return $this->service->update($request, $book);
     }
 
-    public function destroy(Book $Book): JsonResponse
+    public function destroy(Book $book): JsonResponse
     {
-        return $this->service->delete($Book);
+        return $this->service->delete($book);
     }
 }
