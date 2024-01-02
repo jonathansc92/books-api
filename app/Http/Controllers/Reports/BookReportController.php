@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\Reports;
 
-use App\Http\Filters\BookFilter;
-use App\Http\Services\BookViewService;
-use Illuminate\Http\JsonResponse;
 use App\Exports\BookReportExport;
-use Excel;
+use App\Http\Services\BookViewService;
 
 class BookReportController
 {
@@ -17,8 +14,8 @@ class BookReportController
         $this->service = $service;
     }
 
-    public function report(BookFilter $filter)
+    public function report()
     {
-        return (new BookReportExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX, ['Content-Type' => 'text/xlsx']);
+        return (new BookReportExport($this->service->get()))->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX, ['Content-Type' => 'text/xlsx']);
     }
 }

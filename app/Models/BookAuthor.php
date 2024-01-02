@@ -19,11 +19,13 @@ class BookAuthor extends Model
         'author_id',
     ];
 
-    public function book(): BelongsTo {
+    public function book(): BelongsTo
+    {
         return $this->belongsTo(Book::class, 'book_id', 'id');
     }
 
-    public function author(): BelongsTo {
+    public function author(): BelongsTo
+    {
         return $this->belongsTo(Author::class, 'author_id', 'id');
     }
 }

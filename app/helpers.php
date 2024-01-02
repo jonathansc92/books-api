@@ -2,7 +2,6 @@
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
 if (! function_exists('success_response')) {
@@ -11,7 +10,7 @@ if (! function_exists('success_response')) {
         $response = [
             'success' => true,
             'message' => $message,
-            'data' => $data
+            'data' => $data,
         ];
 
         return new JsonResponse(
