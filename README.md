@@ -66,5 +66,9 @@ Obs: Liberar o path com os comandos abaixo, para gerar o excel:
 `sudo chgrp -R www-data storage bootstrap/cache`
 `sudo chmod -R ug+rwx storage bootstrap/cache`
 
+## O que faria se tivesse mais tempo?
+- Colocaria filas ao gerar excel;
+- Deixaria nome do arquivo dinâmico.
+
 Por fim, é isso.
 Qualquer dúvida, ou sugestão. Enviar e-mail para: jonathansc92@gmail.com
