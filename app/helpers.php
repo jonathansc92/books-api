@@ -11,17 +11,8 @@ if (! function_exists('success_response')) {
         $response = [
             'success' => true,
             'message' => $message,
+            'data' => $data
         ];
-
-        if (empty($data)) {
-            return new JsonResponse($response, $httpStatus);
-        }
-
-        $data = $data instanceof ResourceCollection
-            ? $data->toArray(request())
-            : ['data' => $data];
-
-        $response = array_merge($response, $data);
 
         return new JsonResponse(
             data: $response,

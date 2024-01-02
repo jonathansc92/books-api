@@ -23,7 +23,7 @@ class BookSubject extends Model
         return $this->belongsTo(Book::class, 'book_id', 'id');
     }
 
-    public function author(): BelongsTo {
+    public function subject(): BelongsTo {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
 }

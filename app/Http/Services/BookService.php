@@ -11,7 +11,7 @@ class BookService
 {
     public function get($filter)
     {
-        $books = Book::filter($filter)->paginate();
+        $books = Book::filter($filter)->with(['authors', 'subjects'])->paginate();
 
         return success_response(
             data: new ResourceCollection($books),
