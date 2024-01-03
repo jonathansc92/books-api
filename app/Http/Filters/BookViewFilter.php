@@ -17,7 +17,7 @@ class BookViewFilter extends Filter
         return $this->builder->where('books_by_author', 'like', "%$value%");
     }
 
-    public function subjectsByAuthor(int $value = null): Builder
+    public function subjectsByAuthor(string $value = null): Builder
     {
         return $this->builder->where('subjects_by_author', 'like', "%$value%");
     }

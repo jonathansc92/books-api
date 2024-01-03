@@ -8,4 +8,14 @@ use Illuminate\Support\Facades\Route;
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
 Route::resource('subjects', SubjectController::class);
-Route::post('report', 'App\Http\Controllers\Reports\BookReportController@report');
+
+Route::group(['middleware' => ['access-control:DEMANDA_DEMANDA_CADASTRAR']], function () {
+    Route::resource('topics', TopicController::class);
+});
+
+Route::group(['prefix' => 'reports'], function () {
+    Route::group(['prefix' => 'books'], function () {
+        Route::get('/', 'App\Http\Controllers\Reports\BookReportController@index');
+        Route::post('/export', 'App\Http\Controllers\Reports\BookReportController@report');
+    });
+});
