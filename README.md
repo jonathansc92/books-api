@@ -74,8 +74,7 @@ Obs: Liberar o path com os comandos abaixo, para gerar o excel:
 ## O que faria se tivesse mais tempo?
 - Colocaria filas ao gerar excel;
 - Guardaria em cache a listagem de relatório;
-- Deixaria nome do arquivo dinâmico;
-- Adicionaria filtros para o relatório.
+- Deixaria nome do arquivo dinâmico.
 
 ## Autor
 - Autor - Jonathan Cruz

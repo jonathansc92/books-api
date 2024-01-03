@@ -6,8 +6,8 @@ use App\Models\BookView;
 
 class BookViewService
 {
-    public function get()
+    public function get($filter)
     {
-        return BookView::get();
+        return BookView::filter($filter)->get();
     }
 }
