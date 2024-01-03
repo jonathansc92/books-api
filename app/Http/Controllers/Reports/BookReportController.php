@@ -23,6 +23,6 @@ class BookReportController
 
     public function report(BookViewFilter $filter)
     {
-        return (new BookReportExport($this->service->report($filter)))->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX, ['Content-Type' => 'text/xlsx']);
+        return (new BookReportExport($this->service->report($filter)))->download('relatorio_livros_' . \Carbon\Carbon::createFromTimestamp(time())->timestamp . '.xlsx', \Maatwebsite\Excel\Excel::XLSX, ['Content-Type' => 'text/xlsx']);
     }
 }
