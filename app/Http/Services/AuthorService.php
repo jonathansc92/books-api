@@ -4,6 +4,7 @@ namespace App\Http\Services;
 
 use App\Http\Resources\AuthorResource;
 use App\Models\Author;
+use App\Models\BookAuthor;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
@@ -50,6 +51,15 @@ class AuthorService
 
     public static function delete($author)
     {
+        $bookHasAuthor = BookAuthor::where('author_id', $author->id)->count();
+
+        if ($bookHasAuthor > 0) {
+            return error_response(
+                message: __('messages.not_parent_delete', ['model' => __('models/author.singular')]),
+                httpStatus: Response::HTTP_CONFLICT
+            );
+        }
+
         Author::destroy($author->id);
 
         return success_response(

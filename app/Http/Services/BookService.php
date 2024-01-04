@@ -4,6 +4,8 @@ namespace App\Http\Services;
 
 use App\Http\Resources\BookResource;
 use App\Models\Book;
+use App\Models\BookAuthor;
+use App\Models\BookSubject;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
@@ -54,6 +56,10 @@ class BookService
 
     public static function delete($book)
     {
+        BookAuthor::where('book_id', $book->id)->delete();
+
+        BookSubject::where('book_id', $book->id)->delete();
+
         Book::destroy($book->id);
 
         return success_response(

@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Http\Resources\SubjectResource;
+use App\Models\BookSubject;
 use App\Models\Subject;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
@@ -50,6 +51,15 @@ class SubjectService
 
     public static function delete($subject)
     {
+        $bookHasSubject = BookSubject::where('subject_id', $subject->id)->count();
+
+        if ($bookHasSubject > 0) {
+            return error_response(
+                message: __('messages.not_parent_delete', ['model' => __('models/subject.singular')]),
+                httpStatus: Response::HTTP_CONFLICT
+            );
+        }
+
         Subject::destroy($subject->id);
 
         return success_response(
