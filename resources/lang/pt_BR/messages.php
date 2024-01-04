@@ -12,5 +12,5 @@ return [
     'not_allowed_logged' => ':model não é permitido(a) quando logado.',
     'unread' => ':model não lido(a)',
     'unreads' => ':model não lidos(as)',
-    'not_parent_delete' => ':model possui vinculo em outro cadastro.'
+    'not_parent_delete' => ':model possui vinculo em outro cadastro.',
 ];
